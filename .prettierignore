@@ -1,0 +1,5 @@
+/lib
+/es
+*.bak
+*.bak.js
+*_bak
