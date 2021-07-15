@@ -6,8 +6,7 @@ import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
 
 class PostMessager {
-    constructor(key, instance = {}) {
-        this.key = key || Symbol.for('PostMessager#key')
+    constructor(instance = {}) {
         this.messager = {}
         this.instance = instance
         // 创建message监听
@@ -28,7 +27,7 @@ class PostMessager {
     // 创建message监听
     createEventHandler({ data }) {
         const { event } = data
-        if (!event || !['father', 'son', 'action'].includes(event)) {
+		if (!event || !Object.keys(this.messager).includes(event)) {
             return false
         }
         if (event in this.messager) this.messager[event](data)
