@@ -32,7 +32,7 @@ export default [
     {
         input: 'src/index.js',
         output: {
-            name: 'JSCOOL',
+            name: 'POSTMESSAGER',
             file: 'lib/index.umd.js',
             format: 'umd'
         },
