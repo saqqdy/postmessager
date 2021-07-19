@@ -27,7 +27,7 @@ class PostMessager {
     // 创建message监听
     createEventHandler({ data }) {
         const { event } = data
-		if (!event || !Object.keys(this.messager).includes(event)) {
+        if (!event || !Object.keys(this.messager).includes(event)) {
             return false
         }
         if (event in this.messager) this.messager[event](data)
@@ -50,15 +50,25 @@ class PostMessager {
             )
     }
     // 向下发送message
-    postMessageDown(event, data) {
-        for (let i = 0; i < window.frames.length; i++) {
-            window.frames[i].postMessage(
+    postMessageDown(name, event, data) {
+        if (name) {
+            window.frames[name].postMessage(
                 {
                     event,
                     data
                 },
                 '*'
             )
+        } else {
+            for (let i = 0; i < window.frames.length; i++) {
+                window.frames[i].postMessage(
+                    {
+                        event,
+                        data
+                    },
+                    '*'
+                )
+            }
         }
     }
 }
