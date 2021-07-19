@@ -1,6 +1,6 @@
 /**
  * @description postmessager
- * @example let messager = new PostMessager(); messager.subscribe('action', (data) => { console.log(21, data); }); messager.postMessageUp('action', { up: 201 });
+ * @example let messager = new PostMessager(); messager.subscribe('action', (content) => { console.log(21, content); }); messager.postMessageUp('action', { up: 201 });
  */
 import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
@@ -25,37 +25,37 @@ class PostMessager {
         delete this.messager[action]
     }
     // 创建message监听
-    createEventHandler({ data }) {
-        const { event } = data
-        if (!event || !Object.keys(this.messager).includes(event)) {
+    createEventHandler({ content }) {
+        const { type } = content
+        if (!type || !Object.keys(this.messager).includes(type)) {
             return false
         }
-        if (event in this.messager) this.messager[event](data)
-        else if (event in this.instance) this.instance[event](data)
-        else console.warn('没有注册event的执行方法')
+        if (type in this.messager) this.messager[type](content)
+        else if (type in this.instance) this.instance[type](content)
+        else console.warn('没有注册type的执行方法')
     }
     // 移除message监听
     removeEventHandler() {
         removeEvent(window, 'message', this.createEventHandler, false)
     }
     // 向上发送message
-    postMessageUp(event, data) {
+    postMessageUp(type, content) {
         window !== parent.window &&
             parent.window.postMessage(
                 {
-                    event,
-                    data
+                    type,
+                    content
                 },
                 '*'
             )
     }
     // 向下发送message
-    postMessageDown(name, event, data) {
+    postMessageDown(name, type, content) {
         if (name) {
             window.frames[name].postMessage(
                 {
-                    event,
-                    data
+                    type,
+                    content
                 },
                 '*'
             )
@@ -63,8 +63,8 @@ class PostMessager {
             for (let i = 0; i < window.frames.length; i++) {
                 window.frames[i].postMessage(
                     {
-                        event,
-                        data
+                        type,
+                        content
                     },
                     '*'
                 )
