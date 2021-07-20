@@ -25,8 +25,13 @@ class PostMessager {
         delete this.messager[action]
     }
     // 创建message监听
-    createEventHandler({ content }) {
-        const { type } = content
+    createEventHandler({ data }) {
+        try {
+            data && (data = JSON.parse(data))
+        } catch (e) {
+            console.error('不是标准的JSON对象')
+        }
+        const { type, content } = data
         if (!type || !Object.keys(this.messager).includes(type)) {
             return false
         }
