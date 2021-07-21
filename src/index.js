@@ -44,35 +44,19 @@ class PostMessager {
         removeEvent(window, 'message', this.createEventHandler, false)
     }
     // 向上发送message
-    postMessageUp(type, content) {
-        window !== parent.window &&
-            parent.window.postMessage(
-                {
-                    type,
-                    content
-                },
-                '*'
-            )
+    postMessageUp(data) {
+        window !== parent.window && parent.window.postMessage(data, '*')
     }
-    // 向下发送message
-    postMessageDown(name, type, content) {
-        if (name) {
-            window.frames[name].postMessage(
-                {
-                    type,
-                    content
-                },
-                '*'
-            )
+    // 向下发送message data={pageName,pageID,type,content}
+    postMessageDown(data) {
+        if (data.pageID) {
+            // id不要直接写在iframe上
+            document.getElementById(data.pageID).querySelector('iframe').postMessage(data, '*')
+        } else if (data.pageName) {
+            window.frames[data.pageName].postMessage(data, '*')
         } else {
             for (let i = 0; i < window.frames.length; i++) {
-                window.frames[i].postMessage(
-                    {
-                        type,
-                        content
-                    },
-                    '*'
-                )
+                window.frames[i].postMessage(data, '*')
             }
         }
     }
