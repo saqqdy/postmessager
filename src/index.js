@@ -44,22 +44,58 @@ class PostMessager {
         removeEvent(window, 'message', this.createEventHandler, false)
     }
     // 向上发送message
-    postMessageUp(data) {
-        window !== parent.window && parent.window.postMessage(data, '*')
+    postMessageUp(type, content, pageId) {
+        window !== parent.window &&
+            parent.window.postMessage(
+                {
+                    type,
+                    content,
+                    pageId
+                },
+                '*'
+            )
     }
-    // 向下发送message data={pageName,pageID,type,content}
-    postMessageDown(data) {
-        if (data.pageID) {
-            // id不要直接写在iframe上
-            document.getElementById(data.pageID).querySelector('iframe').postMessage(data, '*')
-        } else if (data.pageName) {
-            window.frames[data.pageName].postMessage(data, '*')
+    // 向上发送message
+    // postMessageUp(data) {
+    //     window !== parent.window && parent.window.postMessage(data, '*')
+    // }
+    // 向下发送message
+    postMessageDown(name, type, content, pageId) {
+        if (name) {
+            window.frames[name].postMessage(
+                {
+                    type,
+                    content,
+                    pageId
+                },
+                '*'
+            )
         } else {
             for (let i = 0; i < window.frames.length; i++) {
-                window.frames[i].postMessage(data, '*')
+                window.frames[i].postMessage(
+                    {
+                        type,
+                        content,
+                        pageId
+                    },
+                    '*'
+                )
             }
         }
     }
+    // 向下发送message data={pageName,pageID,type,content}
+    // postMessageDown(data) {
+    //     if (data.pageID) {
+    //         // id不要直接写在iframe上
+    //         document.getElementById(data.pageID).querySelector('iframe').postMessage(data, '*')
+    //     } else if (data.pageName) {
+    //         window.frames[data.pageName].postMessage(data, '*')
+    //     } else {
+    //         for (let i = 0; i < window.frames.length; i++) {
+    //             window.frames[i].postMessage(data, '*')
+    //         }
+    //     }
+    // }
 }
 
 export default PostMessager
