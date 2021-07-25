@@ -18,7 +18,6 @@
 [download-image]: https://img.shields.io/npm/dm/postmessager.svg?style=flat-square
 [download-url]: https://npmjs.org/package/postmessager
 
-
 # 介绍
 
 postmessager
@@ -37,13 +36,6 @@ yarn add postmessager
 ```js
 // 在你的.vue或者main.js里面写上import
 import PostMessager from 'postmessager'
-
-// 使用
-let messager = new PostMessager();
-messager.subscribe('action', (data) => {
-	console.log(data);
-});
-messager.postMessageUp('action', {});
 ```
 
 ## 使用文件引入的方式
@@ -62,6 +54,45 @@ const PostMessager = require('postmessager')
 <script src="https://unpkg.com/postmessager@0.1.0/lib/index.umd.js"></script>
 ```
 
+# 使用
+
+## 1. 在 vue 中使用
+
+```vue
+<script>
+import PostMessager from 'postmessager'
+
+export default {
+    data() {
+        return {
+            messager: null
+        }
+    },
+    created() {
+        this.messager = new PostMessager(this, 'invokeCustomEvent')
+        this.messager.subcribe('getQuery', this.getQuery)
+    },
+    methods: {
+        getQuery(data) {
+            console.log(data)
+        }
+    }
+}
+</script>
+```
+
+## 2. js 项目中使用
+
+```js
+const messager = new PostMessager()
+messager.subcribe('getQuery', getQuery)
+messager.postMessageUp('actionName', {})
+messager.postMessageDown('iframeName', 'actionName', {})
+
+function getQuery(data) {
+    console.log(data)
+}
+```
 
 # 参与贡献
 
