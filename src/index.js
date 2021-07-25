@@ -4,11 +4,14 @@
  */
 import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
+import uuid from 'js-cool/lib/uuid'
 
 class PostMessager {
-    constructor(instance = {}) {
+    constructor(instance = {}, type = 'invokeCustomEvent') {
         this.messager = {}
         this.instance = instance
+        this.type = type
+        this.uuid = uuid()
         // 创建message监听
         if (typeof window === 'undefined') {
             console.error('仅支持在浏览器端运行')
@@ -17,8 +20,9 @@ class PostMessager {
         addEvent(window, 'message', this.createEventHandler.bind(this), false)
     }
     // 订阅消息
-    subscribe(action, handler) {
-        this.messager[action] = handler
+    subscribe(actionName, handler) {
+        if ('actionName' in this.messager) console.warn('订阅方法名重复，已覆盖旧的订阅')
+        this.messager[actionName] = handler
     }
     // 取消订阅
     unsubscribe(action) {
@@ -31,10 +35,11 @@ class PostMessager {
         } catch (e) {
             console.error('不是标准的JSON对象')
         }
-        const { type, content } = data
-        if (!type || !Object.keys(this.messager).includes(type)) {
-            return false
-        }
+        const { type, content = {} } = data
+        // 优先读取content下面的actionName
+        if (this.type && 'actionName' in content) type = content.actionName
+        if (!type || !Object.keys(this.messager).includes(type)) return false
+        // 执行方法
         if (type in this.messager) this.messager[type](content)
         else if (type in this.instance) this.instance[type](content)
         else console.warn('没有注册type的执行方法')
@@ -44,14 +49,20 @@ class PostMessager {
         removeEvent(window, 'message', this.createEventHandler, false)
     }
     // 向上发送message
-    postMessageUp(type, content, pageId) {
+    postMessageUp(actionName, content = {}, pageId) {
+        let type = actionName
+        if (this.type) {
+            content.actionName = actionName
+            type = this.type
+        }
         window !== parent.window &&
             parent.window.postMessage(
-                {
+                JSON.stringify({
                     type,
                     content,
-                    pageId
-                },
+                    pageId,
+                    uuid: this.uuid
+                }),
                 '*'
             )
     }
@@ -60,24 +71,31 @@ class PostMessager {
     //     window !== parent.window && parent.window.postMessage(data, '*')
     // }
     // 向下发送message
-    postMessageDown(name, type, content, pageId) {
+    postMessageDown(name, actionName, content, pageId) {
+        let type = actionName
+        if (this.type) {
+            content.actionName = actionName
+            type = this.type
+        }
         if (name) {
             window.frames[name].postMessage(
-                {
+                JSON.stringify({
                     type,
-                    content,
-                    pageId
-                },
+                    content: {},
+                    pageId,
+                    uuid: this.uuid
+                }),
                 '*'
             )
         } else {
             for (let i = 0; i < window.frames.length; i++) {
                 window.frames[i].postMessage(
-                    {
+                    JSON.stringify({
                         type,
                         content,
-                        pageId
-                    },
+                        pageId,
+                        uuid: this.uuid
+                    }),
                     '*'
                 )
             }
