@@ -3,7 +3,7 @@ const path = require('path')
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import { terser } from 'rollup-plugin-terser'
+import { uglify } from 'rollup-plugin-uglify'
 import esbuild from 'rollup-plugin-esbuild'
 import pkg from './package.json'
 
@@ -29,21 +29,21 @@ readDir('./src')
 const production = !process.env.ROLLUP_WATCH
 
 export default [
-    {
-        input: 'src/index.js',
-        output: {
-            name: 'POSTMESSAGER',
-            file: 'lib/index.umd.js',
-            format: 'umd'
-        },
-        plugins: [
-            resolve(), // so Rollup can find `ms`
-            commonjs(), // so Rollup can convert `ms` to an ES module
-            babel({ babelHelpers: 'inline' }),
-            production && terser()
-        ]
-        // external: ['core-js', '@babel/runtime']
-    },
+    // {
+    //     input: 'src/index.js',
+    //     output: {
+    //         name: 'POSTMESSAGER',
+    //         file: 'lib/index.umd.js',
+    //         format: 'umd'
+    //     },
+    //     plugins: [
+    //         resolve(), // so Rollup can find `ms`
+    //         commonjs(), // so Rollup can convert `ms` to an ES module
+    //         babel({ babelHelpers: 'inline' }),
+    //         production && uglify()
+    //     ],
+    //     // external: ['core-js', '@babel/runtime', 'js-cool']
+    // },
     {
         input: 'src/index.js',
         output: [
