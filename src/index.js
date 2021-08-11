@@ -35,7 +35,7 @@ class PostMessager {
         } catch (e) {
             console.error('不是标准的JSON对象')
         }
-        const { type, content = {} } = data
+        let { type, content = {} } = data
         // 优先读取content下面的actionName
         if (this.type && 'actionName' in content) type = content.actionName
         if (!type || !Object.keys(this.messager).includes(type)) return false
