@@ -32,7 +32,7 @@ module.exports = {
         children: false
     },
     optimization: {
-        minimize: true,
+        minimize: true
     },
     module: {
         rules: [

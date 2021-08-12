@@ -31,9 +31,9 @@ class PostMessager {
     // 创建message监听
     createEventHandler({ data }) {
         try {
-            data && (data = JSON.parse(data))
-        } catch (e) {
-            console.error('不是标准的JSON对象')
+            data && typeof data === 'string' && (data = JSON.parse(data))
+        } catch {
+            console.warn('不是标准的JSON对象')
         }
         let { type, content = {} } = data
         // 优先读取content下面的actionName
