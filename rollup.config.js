@@ -5,6 +5,7 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { uglify } from 'rollup-plugin-uglify'
 import esbuild from 'rollup-plugin-esbuild'
+import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
 let fileList = []
@@ -45,7 +46,7 @@ export default [
     //     // external: ['core-js', '@babel/runtime', 'js-cool']
     // },
     {
-        input: 'src/index.js',
+        input: 'src/index.ts',
         output: [
             {
                 file: pkg.main,
@@ -56,7 +57,16 @@ export default [
                 format: 'es'
             }
         ],
-        plugins: [babel({ babelHelpers: 'bundled' })],
+        plugins: [
+            babel({ babelHelpers: 'bundled' }),
+            typescript({
+                tsconfigOverride: {
+                    include: ['src/**/*'],
+                    exclude: ['node_modules', 'src/**/__tests__/*']
+                },
+                abortOnError: false
+            })
+        ],
         external: ['core-js']
     },
     {
@@ -73,7 +83,16 @@ export default [
                 sourcemap: false
             }
         ],
-        plugins: [babel({ babelHelpers: 'bundled' })],
+        plugins: [
+            babel({ babelHelpers: 'bundled' })
+            // typescript({
+            //     tsconfigOverride: {
+            //         include: ['packages/**/*', 'typings/vue-shim.d.ts'],
+            //         exclude: ['node_modules', 'packages/**/__tests__/*']
+            //     },
+            //     abortOnError: false
+            // })
+        ],
         external: ['core-js']
     }
 ]
