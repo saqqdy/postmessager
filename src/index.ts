@@ -1,11 +1,8 @@
-/**
- * @description postmessager
- * @example let messager = new PostMessager(); messager.subscribe('action', (content) => { console.log(21, content); }); messager.postMessageUp('action', { up: 201 });
- */
+
 import { readonly } from 'core-decorators';
-import { addEvent, removeEvent, uuid } from 'js-cool'
-// import * as removeEvent from 'js-cool/lib/removeEvent'
-// import * as uuid from 'js-cool/lib/uuid'
+import addEvent from 'js-cool/lib/addEvent'
+import removeEvent from 'js-cool/lib/removeEvent'
+import uuid from 'js-cool/lib/uuid'
 
 export interface Content {
     actionName?: string
@@ -31,7 +28,16 @@ interface PostMessagerType {
     // type: string
 }
 
-
+/**
+ * postmessage集成方案
+ *
+ * @example
+ * ```js
+ * let messager = new PostMessager();
+ * messager.subscribe('action', (content) => { console.log(21, content); });
+ * messager.postMessageUp('action', { up: 201 });
+ * ```
+ */
 class PostMessager implements PostMessagerType {
     messager: {
         [type: string]: any
@@ -50,7 +56,7 @@ class PostMessager implements PostMessagerType {
             console.error('仅支持在浏览器端运行')
             return
         }
-        addEvent((window as any), 'message', this.createEventHandler.bind(this), false)
+        addEvent((window as any), 'message', this.createEventHandler.bind(this))
     }
     // 订阅消息
     subscribe(actionName: string, handler: any): void {
@@ -79,7 +85,7 @@ class PostMessager implements PostMessagerType {
     }
     // 移除message监听
     removeEventHandler(): void {
-        removeEvent(window, 'message', this.createEventHandler, false)
+        removeEvent(window, 'message', this.createEventHandler)
     }
     // 向上发送message
     postMessageUp(actionName: string, content: any = {}, pageId: string): void {
