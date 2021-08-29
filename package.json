@@ -6,7 +6,8 @@
     "unpkg": "lib/index.js",
     "module": "lib/index.esm.js",
     "files": [
-        "lib"
+        "lib",
+        "typings"
     ],
     "directories": {
         "lib": "lib",
@@ -15,15 +16,17 @@
     "scripts": {
         "build": "rm -rf ./lib && rollup -c",
         "build:umd": "webpack --config webpack.config.js",
-        "build:types": "run-s build-temp-types patch-types roll-types",
+        "build:types": "run-s build-temp-types roll-types",
         "build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
         "patch-types": "node script/patchTypes",
         "roll-types": "api-extractor run && rimraf temp",
         "dev": "rollup -c -w",
+        "dist": "run-s eslint prettier build build:umd build:types docs prettier:docs",
         "test": "node test/test.js",
         "pretest": "npm run build",
         "docs": "jsdoc2md src/**/*.js > API.md",
         "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
+        "prettier:docs": "prettier --write \"*.{md}\"",
         "pub": "git add . && git commit -m $npm_package_version && git pull && git push"
     },
     "dependencies": {
@@ -55,7 +58,6 @@
         "progress-bar-webpack-plugin": "^2.1.0",
         "rimraf": "^3.0.2",
         "rollup": "^2.56.2",
-        "rollup-plugin-esbuild": "^4.5.0",
         "rollup-plugin-typescript2": "^0.30.0",
         "rollup-plugin-uglify": "^6.0.4",
         "typescript": "^4.3.5",

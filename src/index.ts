@@ -4,29 +4,18 @@ import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
 import uuid from 'js-cool/lib/uuid'
 
-export interface Content {
-    actionName?: string
-}
+// export interface Content {
+//     actionName?: string
+// }
 
-export interface PostMessageEvent {
-    data: {
-        type?: string
-        content: {
-            actionName?: string
-        }
-    }
-}
-
-interface PostMessagerType {
-    // messager: {
-    //     [prop: string]: any
-    // }
-    // uuid: string
-    instance: {
-        [type: string]: any
-    }
-    // type: string
-}
+// export interface PostMessageEvent {
+//     data: {
+//         type?: string
+//         content: {
+//             actionName?: string
+//         }
+//     }
+// }
 
 /**
  * postmessage集成方案
@@ -38,7 +27,7 @@ interface PostMessagerType {
  * messager.postMessageUp('action', { up: 201 });
  * ```
  */
-class PostMessager implements PostMessagerType {
+class PostMessager {
     messager: {
         [type: string]: any
     } = {}
@@ -68,7 +57,7 @@ class PostMessager implements PostMessagerType {
         delete this.messager[action]
     }
     // 创建message监听
-    createEventHandler({ data }: PostMessageEvent): boolean | void {
+    createEventHandler({ data }: any): boolean | void {
         try {
             data && typeof data === 'string' && (data = JSON.parse(data))
         } catch {
@@ -106,7 +95,7 @@ class PostMessager implements PostMessagerType {
             )
     }
     // 向下发送message
-    postMessageDown(name: string | null, actionName: string, content: Content, pageId: string): void {
+    postMessageDown(name: string | null, actionName: string, content: any, pageId: string): void {
         let type = actionName
         if (this.type) {
             content.actionName = actionName
@@ -116,7 +105,7 @@ class PostMessager implements PostMessagerType {
             (window as any).frames[name].postMessage(
                 JSON.stringify({
                     type,
-                    content: {},
+                    content,
                     pageId,
                     uuid: this.uuid
                 }),

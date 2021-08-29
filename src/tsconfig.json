@@ -1,14 +1,12 @@
 {
     "extends": "../tsconfig.json",
-    // "include": ["./", "../typings", "../**/*.d.ts"],
-    // "exclude": ["**/__tests__", "../temp"],
+    "include": ["./", "../typings"],
+    "exclude": ["**/__tests__", "../temp"],
     "compilerOptions": {
         // compile away optional-chaining-operator
         "target": "es6",
         "outDir": "../lib",
         "module": "commonjs",
-        // "lib": ["ESNext"],
-        // "lib": ["dom"],
         "sourceMap": true
     }
 }
