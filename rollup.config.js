@@ -7,23 +7,7 @@ import { uglify } from 'rollup-plugin-uglify'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
-let fileList = []
-const readDir = entry => {
-    const dirInfo = fs.readdirSync(entry)
-    dirInfo.forEach(item => {
-        const name = path.join(entry, item)
-        const info = fs.statSync(name)
-        if (info.isDirectory()) {
-            readDir(name)
-        } else {
-            ;/^[\S]*\.ts$/.test(item) && item !== 'index.ts' && getInfo(name)
-        }
-    })
-}
-const getInfo = url => {
-    fileList.push(url)
-}
-readDir('./src')
+const config = require('./config')
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -41,7 +25,8 @@ export default [
             }
         ],
         plugins: [
-            resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs', '.ts', '.json'] }),
+            resolve({ extensions: config.extensions }),
+            commonjs(),
             typescript({
                 tsconfigOverride: {
                     compilerOptions: {
@@ -54,12 +39,11 @@ export default [
             }),
             babel({
                 babelHelpers: 'bundled',
-                extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs', '.ts', '.json'],
+                extensions: config.extensions,
                 // exclude: [/\/core-js\//],
                 // runtimeHelpers: true,
                 sourceMap: true
-            }),
-            commonjs()
+            })
         ],
         external(id) {
             // return ['core-js', 'tslib'].some(k => new RegExp('^' + k).test(id))
@@ -67,36 +51,31 @@ export default [
         }
     },
     {
-        input: fileList,
+        input: 'src/index.ts',
         output: [
             {
-                // file: 'lib/[name].js',
-                dir: 'lib',
-                preserveModules: true,
-                preserveModulesRoot: 'src',
-                exports: 'auto',
-                format: 'cjs',
-                // format: 'iife', // immediately-invoked function expression — suitable for <script> tags
-                sourcemap: false
+                file: 'es/index.js',
+                format: 'cjs'
+            },
+            {
+                file: 'es/index.esm.js',
+                format: 'es'
             }
         ],
         plugins: [
-            resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs', '.ts', '.json'] }),
+            resolve({ extensions: config.extensions }),
+            commonjs(),
             typescript({
                 tsconfigOverride: {
+                    compilerOptions: {
+                        declaration: false,
+                        target: 'es6'
+                    },
                     include: ['src/**/*'],
                     exclude: ['node_modules', '__tests__', 'core-js']
                 },
                 abortOnError: false
-            }),
-            babel({
-                babelHelpers: 'bundled',
-                extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es', '.mjs', '.ts', '.json'],
-                // exclude: [/\/core-js\//],
-                // runtimeHelpers: true,
-                sourceMap: true
-            }),
-            commonjs()
+            })
         ],
         external(id) {
             return ['core-js'].some(k => new RegExp('^' + k).test(id))

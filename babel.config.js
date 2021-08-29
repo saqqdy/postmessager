@@ -3,7 +3,7 @@ module.exports = {
         [
             '@babel/env',
             {
-                loose: true,
+                loose: false,
                 modules: 'auto',
                 useBuiltIns: 'usage',
                 corejs: 3
@@ -11,5 +11,14 @@ module.exports = {
         ],
         '@babel/typescript'
     ],
-    // plugins: ['@babel/plugin-transform-runtime']
+    plugins: [
+        [
+            '@babel/plugin-proposal-decorators',
+            {
+                legacy: true
+            }
+        ],
+        '@babel/plugin-proposal-class-properties'
+        // '@babel/plugin-transform-runtime'
+    ]
 }

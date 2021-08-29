@@ -1,40 +1,9 @@
-import 'core-js/modules/es.function.bind.js';
-import 'core-js/modules/es.array.includes.js';
-import 'core-js/modules/es.string.includes.js';
-import 'core-js/modules/es.object.keys.js';
-import 'core-js/modules/es.object.set-prototype-of.js';
-import 'core-js/modules/es.object.create.js';
-import 'core-js/modules/es.object.assign.js';
-import 'core-js/modules/es.array.index-of.js';
-import 'core-js/modules/es.symbol.js';
-import 'core-js/modules/es.object.get-own-property-descriptor.js';
-import 'core-js/modules/es.object.define-property.js';
-import 'core-js/modules/es.object.to-string.js';
-import 'core-js/modules/es.promise.js';
-import 'core-js/modules/es.symbol.description.js';
-import 'core-js/modules/es.symbol.iterator.js';
-import 'core-js/modules/es.array.iterator.js';
-import 'core-js/modules/es.string.iterator.js';
-import 'core-js/modules/web.dom-collections.iterator.js';
-import 'core-js/modules/es.array.concat.js';
-import 'core-js/modules/es.symbol.async-iterator.js';
 import 'core-js/modules/es.regexp.exec.js';
 import 'core-js/modules/es.string.replace.js';
 import 'core-js/modules/es.date.to-string.js';
+import 'core-js/modules/es.object.to-string.js';
 import 'core-js/modules/es.regexp.to-string.js';
-import 'core-js/modules/es.function.name.js';
-import 'core-js/modules/es.array.slice.js';
-import 'core-js/modules/es.object.get-prototype-of.js';
-import 'core-js/modules/es.array.for-each.js';
-import 'core-js/modules/web.dom-collections.for-each.js';
-import 'core-js/modules/es.array.reduce.js';
-import 'core-js/modules/es.array.reverse.js';
-import 'core-js/modules/es.array.is-array.js';
-import 'core-js/modules/es.array.from.js';
-import 'core-js/modules/es.object.get-own-property-names.js';
-import 'core-js/modules/es.weak-map.js';
-import 'core-js/modules/web.timers.js';
-import 'core-js/modules/es.date.now.js';
+import 'core-js/modules/es.array.iterator.js';
 import 'core-js/modules/es.array-buffer.slice.js';
 import 'core-js/modules/es.typed-array.uint8-array.js';
 import 'core-js/modules/es.typed-array.copy-within.js';
@@ -61,67 +30,45 @@ import 'core-js/modules/es.typed-array.subarray.js';
 import 'core-js/modules/es.typed-array.to-locale-string.js';
 import 'core-js/modules/es.typed-array.to-string.js';
 
-function _typeof$2(obj) {
-  "@babel/helpers - typeof";
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
 
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof$2 = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof$2 = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
 
-  return _typeof$2(obj);
-}
-
-function _classCallCheck$2(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass$1(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
 
 function __decorate(decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof$2(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 }
+
 function __metadata(metadataKey, metadataValue) {
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof$2(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
 }
 
 var defineProperty = Object.defineProperty;
+
 
 function handleDescriptor$1(target, key, descriptor) {
   var configurable = descriptor.configurable,
       enumerable = descriptor.enumerable,
       initializer = descriptor.initializer,
       value = descriptor.value;
+
   return {
     configurable: configurable,
     enumerable: enumerable,
+
     get: function get() {
       // This happens if someone accesses the
       // property directly on the prototype
@@ -130,14 +77,18 @@ function handleDescriptor$1(target, key, descriptor) {
       }
 
       var ret = initializer ? initializer.call(this) : value;
+
       defineProperty(this, key, {
         configurable: configurable,
         enumerable: enumerable,
         writable: true,
         value: ret
       });
+
       return ret;
     },
+
+
     set: createDefaultSetter(key)
   };
 }
@@ -150,11 +101,7 @@ function lazyInitialize() {
   return decorate(handleDescriptor$1, args);
 }
 
-var _typeof$1 = typeof Symbol === "function" && _typeof$2(Symbol.iterator) === "symbol" ? function (obj) {
-  return _typeof$2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof$2(obj);
-};
+var _typeof$1 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
 
@@ -168,11 +115,7 @@ function _initDefineProp(target, property, descriptor, context) {
   });
 }
 
-function _classCallCheck$1(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
+function _classCallCheck$1(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -203,17 +146,9 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-function _toConsumableArray(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-    return arr2;
-  } else {
-    return Array.from(arr);
-  }
-}
+
 function isDescriptor(desc) {
   if (!desc || !desc.hasOwnProperty) {
     return false;
@@ -229,6 +164,7 @@ function isDescriptor(desc) {
 
   return false;
 }
+
 function decorate(handleDescriptor, entryArgs) {
   if (isDescriptor(entryArgs[entryArgs.length - 1])) {
     return handleDescriptor.apply(undefined, _toConsumableArray(entryArgs).concat([[]]));
@@ -238,6 +174,7 @@ function decorate(handleDescriptor, entryArgs) {
     };
   }
 }
+
 (_class = function Meta() {
   _classCallCheck$1(this, Meta);
 
@@ -276,6 +213,7 @@ function decorate(handleDescriptor, entryArgs) {
     return null;
   }
 })), _class);
+
 function createDefaultSetter(key) {
   return function set(newValue) {
     Object.defineProperty(this, key, {
@@ -285,9 +223,11 @@ function createDefaultSetter(key) {
       enumerable: true,
       value: newValue
     });
+
     return newValue;
   };
 }
+
 function bind(fn, context) {
   if (fn.bind) {
     return fn.bind(context);
@@ -297,6 +237,7 @@ function bind(fn, context) {
     };
   }
 }
+
 var warn = function () {
   if ((typeof console === 'undefined' ? 'undefined' : _typeof$1(console)) !== 'object' || !console || typeof console.warn !== 'function') {
     return function () {};
@@ -305,35 +246,12 @@ var warn = function () {
   }
 }();
 
-var _typeof = typeof Symbol === "function" && _typeof$2(Symbol.iterator) === "symbol" ? function (obj) {
-  return _typeof$2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof$2(obj);
-};
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
 var GENERIC_FUNCTION_ERROR = '{child} does not properly override {parent}';
 var FUNCTION_REGEXP = /^function ([_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*)?(\([^\)]*\))[\s\S]+$/;
 
@@ -363,7 +281,6 @@ var FUNCTION_REGEXP = /^function ([_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*
       switch (typeof topic === 'undefined' ? 'undefined' : _typeof(topic)) {
         case 'function':
           return this._extractFunctionSignature(topic);
-
         default:
           return this.key;
       }
@@ -439,7 +356,8 @@ var FUNCTION_REGEXP = /^function ([_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*
     value: function error(msg) {
       var _this2 = this;
 
-      msg = msg // Replace lazily, because they actually might not
+      msg = msg
+      // Replace lazily, because they actually might not
       // be available in all cases
       .replace('{parent}', function (m) {
         return _this2.parentNotation;
@@ -452,12 +370,6 @@ var FUNCTION_REGEXP = /^function ([_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*
 
   return SyntaxErrorReporter;
 })();
-
-typeof Symbol === "function" && _typeof$2(Symbol.iterator) === "symbol" ? function (obj) {
-  return _typeof$2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof$2(obj);
-};
 
 function handleDescriptor(target, key, descriptor) {
   descriptor.writable = false;
@@ -472,14 +384,9 @@ function readonly() {
   return decorate(handleDescriptor, args);
 }
 
-typeof Symbol === "function" && _typeof$2(Symbol.iterator) === "symbol" ? function (obj) {
-  return _typeof$2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof$2(obj);
-};
+var labels = {};
 
-var labels = {}; // Exported for mocking in tests
-
+// Exported for mocking in tests
 ({
   time: console.time ? console.time.bind(console) : function (label) {
     labels[label] = new Date();
@@ -492,12 +399,14 @@ var labels = {}; // Exported for mocking in tests
   }
 });
 
+// Exported for mocking in tests
 ({
   profile: console.profile ? bind(console.profile, console) : function () {},
   profileEnd: console.profileEnd ? bind(console.profileEnd, console) : function () {},
   warn: warn
 });
 
+// export interface CustomEvent extends Event {
 //     returnValue: boolean
 //     cancelBubble: boolean
 // }
@@ -509,8 +418,6 @@ var labels = {}; // Exported for mocking in tests
  * @param type - 事件类型。不需要加on
  * @param handler - 回调方法
  */
-
-
 function addEvent(element, type, handler) {
   if (element.addEventListener) {
     element.addEventListener(type, handler, false);
@@ -599,8 +506,6 @@ var addEvent_1 = addEvent;
  * @param type - 事件类型。不需要加on
  * @param handler - 回调方法
  */
-
-
 function removeEvent(element, type, handler) {
   if (element.removeEventListener) {
     element.removeEventListener(type, handler, false);
@@ -624,8 +529,6 @@ var removeEvent_1 = removeEvent;
  * @returns uuid
  */
 // @ts-ignore
-
-
 var uuid = function uuid() {
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (c) {
     return (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16);
@@ -634,6 +537,7 @@ var uuid = function uuid() {
 
 var uuid_1 = uuid;
 
+// export interface Content {
 //     actionName?: string
 // }
 // export interface PostMessageEvent {
@@ -644,7 +548,6 @@ var uuid_1 = uuid;
 //         }
 //     }
 // }
-
 /**
  * postmessage集成方案
  *
@@ -655,121 +558,100 @@ var uuid_1 = uuid;
  * messager.postMessageUp('action', { up: 201 });
  * ```
  */
-
-var PostMessager = /*#__PURE__*/function () {
-  function PostMessager() {
-    var instance = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'invokeCustomEvent';
-
-    _classCallCheck$2(this, PostMessager);
-
-    this.messager = {};
-    this.uuid = uuid_1();
-    this.instance = instance;
-    this.type = type; // 创建message监听
-
-    if (typeof window === 'undefined') {
-      console.error('仅支持在浏览器端运行');
-      return;
-    }
-
-    addEvent_1(window, 'message', this.createEventHandler.bind(this));
-  } // 订阅消息
-
-
-  _createClass$1(PostMessager, [{
-    key: "subscribe",
-    value: function subscribe(actionName, handler) {
-      if ('actionName' in this.messager) console.warn('订阅方法名重复，已覆盖旧的订阅');
-      this.messager[actionName] = handler;
-    } // 取消订阅
-
-  }, {
-    key: "unsubscribe",
-    value: function unsubscribe(action) {
-      delete this.messager[action];
-    } // 创建message监听
-
-  }, {
-    key: "createEventHandler",
-    value: function createEventHandler(_ref) {
-      var data = _ref.data;
-
-      try {
-        data && typeof data === 'string' && (data = JSON.parse(data));
-      } catch (_a) {
-        console.warn('不是标准的JSON对象');
-      }
-
-      var _data = data,
-          type = _data.type,
-          _data$content = _data.content,
-          content = _data$content === void 0 ? {} : _data$content; // 优先读取content下面的actionName
-
-      if (this.type && 'actionName' in content) type = content.actionName;
-      if (!type || !Object.keys(this.messager).includes(type)) return false; // 执行方法
-
-      if (type in this.messager) this.messager[type](content);else if (type in this.instance) this.instance[type](content);else console.warn('没有注册type的执行方法');
-    } // 移除message监听
-
-  }, {
-    key: "removeEventHandler",
-    value: function removeEventHandler() {
-      removeEvent_1(window, 'message', this.createEventHandler);
-    } // 向上发送message
-
-  }, {
-    key: "postMessageUp",
-    value: function postMessageUp(actionName) {
-      var content = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var pageId = arguments.length > 2 ? arguments[2] : undefined;
-      var type = actionName;
-
-      if (this.type) {
-        content.actionName = actionName;
-        type = this.type;
-      }
-      window !== parent.window && parent.window.postMessage(JSON.stringify({
-        type: type,
-        content: content,
-        pageId: pageId,
-        uuid: this.uuid
-      }), '*');
-    } // 向下发送message
-
-  }, {
-    key: "postMessageDown",
-    value: function postMessageDown(name, actionName, content, pageId) {
-      var type = actionName;
-
-      if (this.type) {
-        content.actionName = actionName;
-        type = this.type;
-      }
-
-      if (name) {
-        window.frames[name].postMessage(JSON.stringify({
-          type: type,
-          content: content,
-          pageId: pageId,
-          uuid: this.uuid
-        }), '*');
-      } else {
-        for (var i = 0; i < window.frames.length; i++) {
-          window.frames[i].postMessage(JSON.stringify({
-            type: type,
-            content: content,
-            pageId: pageId,
-            uuid: this.uuid
-          }), '*');
+class PostMessager {
+    constructor(instance = {}, type = 'invokeCustomEvent') {
+        this.messager = {};
+        this.uuid = uuid_1();
+        this.instance = instance;
+        this.type = type;
+        // 创建message监听
+        if (typeof window === 'undefined') {
+            console.error('仅支持在浏览器端运行');
+            return;
         }
-      }
+        addEvent_1(window, 'message', this.createEventHandler.bind(this));
     }
-  }]);
-
-  return PostMessager;
-}();
-
-__decorate([readonly, __metadata("design:type", String)], PostMessager.prototype, "uuid", void 0);
+    // 订阅消息
+    subscribe(actionName, handler) {
+        if ('actionName' in this.messager)
+            console.warn('订阅方法名重复，已覆盖旧的订阅');
+        this.messager[actionName] = handler;
+    }
+    // 取消订阅
+    unsubscribe(action) {
+        delete this.messager[action];
+    }
+    // 创建message监听
+    createEventHandler({ data }) {
+        try {
+            data && typeof data === 'string' && (data = JSON.parse(data));
+        }
+        catch (_a) {
+            console.warn('不是标准的JSON对象');
+        }
+        let { type, content = {} } = data;
+        // 优先读取content下面的actionName
+        if (this.type && 'actionName' in content)
+            type = content.actionName;
+        if (!type || !Object.keys(this.messager).includes(type))
+            return false;
+        // 执行方法
+        if (type in this.messager)
+            this.messager[type](content);
+        else if (type in this.instance)
+            this.instance[type](content);
+        else
+            console.warn('没有注册type的执行方法');
+    }
+    // 移除message监听
+    removeEventHandler() {
+        removeEvent_1(window, 'message', this.createEventHandler);
+    }
+    // 向上发送message
+    postMessageUp(actionName, content = {}, pageId) {
+        let type = actionName;
+        if (this.type) {
+            content.actionName = actionName;
+            type = this.type;
+        }
+        window !== parent.window &&
+            parent.window.postMessage(JSON.stringify({
+                type,
+                content,
+                pageId,
+                uuid: this.uuid
+            }), '*');
+    }
+    // 向下发送message
+    postMessageDown(name, actionName, content, pageId) {
+        let type = actionName;
+        if (this.type) {
+            content.actionName = actionName;
+            type = this.type;
+        }
+        if (name) {
+            window.frames[name].postMessage(JSON.stringify({
+                type,
+                content,
+                pageId,
+                uuid: this.uuid
+            }), '*');
+        }
+        else {
+            for (let i = 0; i < window.frames.length; i++) {
+                window.frames[i].postMessage(JSON.stringify({
+                    type,
+                    content,
+                    pageId,
+                    uuid: this.uuid
+                }), '*');
+            }
+        }
+    }
+}
+__decorate([
+    readonly,
+    __metadata("design:type", String)
+], PostMessager.prototype, "uuid", void 0);
 
 export { PostMessager as default };

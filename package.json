@@ -1,42 +1,47 @@
 {
     "name": "postmessager",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "description": "postmessage集成方案",
     "main": "lib/index.js",
     "unpkg": "lib/index.js",
     "module": "lib/index.esm.js",
     "files": [
+        "es",
         "lib",
         "typings"
     ],
     "directories": {
+        "es": "es",
         "lib": "lib",
         "src": "src"
     },
     "scripts": {
-        "build": "rm -rf ./lib && rollup -c",
+        "build": "rimraf lib es && rollup -c",
         "build:umd": "webpack --config webpack.config.js",
         "build:types": "run-s build-temp-types roll-types",
         "build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
         "patch-types": "node script/patchTypes",
         "roll-types": "api-extractor run && rimraf temp",
         "dev": "rollup -c -w",
-        "dist": "run-s eslint prettier build build:umd build:types docs prettier:docs",
+        "dist": "run-s eslint prettier build build:umd build:types",
+        "docs": "rimraf docs && typedoc",
         "test": "node test/test.js",
         "pretest": "npm run build",
-        "docs": "jsdoc2md src/**/*.js > API.md",
+        "eslint": "eslint --fix --ext .ts,.js",
         "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
         "prettier:docs": "prettier --write \"*.{md}\"",
         "pub": "git add . && git commit -m $npm_package_version && git pull && git push"
     },
     "dependencies": {
         "core-js": "^3.16.1",
-        "js-cool": "^2.0.1"
+        "js-cool": "^2.1.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.14.8",
         "@babel/core": "^7.15.0",
         "@babel/eslint-parser": "^7.15.0",
+        "@babel/plugin-proposal-class-properties": "^7.14.5",
+        "@babel/plugin-proposal-decorators": "^7.14.5",
         "@babel/plugin-transform-runtime": "^7.15.0",
         "@babel/preset-env": "^7.15.0",
         "@babel/preset-typescript": "^7.15.0",
@@ -52,7 +57,6 @@
         "esbuild": "^0.12.20",
         "eslint": "^7.31.0",
         "eslint-config-sets": "^1.0.10",
-        "jsdoc-to-markdown": "^7.0.1",
         "npm-run-all": "^4.1.5",
         "prettier": "^2.2.1",
         "progress-bar-webpack-plugin": "^2.1.0",
@@ -60,9 +64,12 @@
         "rollup": "^2.56.2",
         "rollup-plugin-typescript2": "^0.30.0",
         "rollup-plugin-uglify": "^6.0.4",
+        "typedoc": "^0.21.8",
+        "typedoc-plugin-markdown": "^3.10.4",
         "typescript": "^4.3.5",
         "webpack": "^5.50.0",
         "webpack-cli": "^4.8.0",
+        "webpack-merge": "^5.8.0",
         "webpack-node-externals": "^3.0.0"
     },
     "repository": {

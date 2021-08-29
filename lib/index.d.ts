@@ -1,38 +1,29 @@
-
-export declare interface Content {
-    actionName?: string;
-}
-
-export declare interface Instance {
-    [type: string]: any;
-}
-
-export declare interface PostMessageEvent {
-    data: {
-        type?: string;
-        content: {
-            actionName?: string;
-        };
+/**
+ * postmessage集成方案
+ *
+ * @example
+ * ```js
+ * let messager = new PostMessager();
+ * messager.subscribe('action', (content) => { console.log(21, content); });
+ * messager.postMessageUp('action', { up: 201 });
+ * ```
+ */
+declare class PostMessager {
+    messager: {
+        [type: string]: any;
     };
-}
-
-declare interface PostMessager {
-    messager: object;
     uuid: string;
-    instance: Instance;
+    instance: {
+        [type: string]: any;
+    };
     type: string;
-}
-
-declare class PostMessager implements Instance {
-    messager: object;
-    uuid: string;
     constructor(instance?: object, type?: string);
-    subscribe(actionName: any, handler: any): void;
+    subscribe(actionName: string, handler: any): void;
     unsubscribe(action: string): void;
-    createEventHandler({ data }: PostMessageEvent): boolean;
+    createEventHandler({ data }: any): boolean | void;
     removeEventHandler(): void;
-    postMessageUp(actionName: any, content: any, pageId: any): void;
-    postMessageDown(name: string, actionName: string, content: Content, pageId: string): void;
+    postMessageUp(actionName: string, content: any, pageId: string): void;
+    postMessageDown(name: string | null, actionName: string, content: any, pageId: string): void;
 }
 export default PostMessager;
 

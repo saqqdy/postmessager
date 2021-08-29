@@ -1,5 +1,4 @@
-
-import { readonly } from 'core-decorators';
+import { readonly } from 'core-decorators'
 import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
 import uuid from 'js-cool/lib/uuid'
@@ -45,7 +44,7 @@ class PostMessager {
             console.error('仅支持在浏览器端运行')
             return
         }
-        addEvent((window as any), 'message', this.createEventHandler.bind(this))
+        addEvent(window as any, 'message', this.createEventHandler.bind(this))
     }
     // 订阅消息
     subscribe(actionName: string, handler: any): void {
@@ -83,7 +82,7 @@ class PostMessager {
             content.actionName = actionName
             type = this.type
         }
-        (window as any) !== (parent as any).window &&
+        ;(window as any) !== (parent as any).window &&
             (parent as any).window.postMessage(
                 JSON.stringify({
                     type,
@@ -102,7 +101,7 @@ class PostMessager {
             type = this.type
         }
         if (name) {
-            (window as any).frames[name].postMessage(
+            ;(window as any).frames[name].postMessage(
                 JSON.stringify({
                     type,
                     content,
@@ -113,7 +112,7 @@ class PostMessager {
             )
         } else {
             for (let i = 0; i < (window as any).frames.length; i++) {
-                (window as any).frames[i].postMessage(
+                ;(window as any).frames[i].postMessage(
                     JSON.stringify({
                         type,
                         content,

@@ -1,17 +1,21 @@
 {
     "compilerOptions": {
         "allowJs": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "target": "es6",
-        // "moduleResolution": "node",
-        "lib": ["es5", "es6", "dom", "dom.iterable", "esnext"],
+        "moduleResolution": "node",
+        // "lib": ["es5", "es6", "dom", "dom.iterable", "esnext"],
+        "lib": ["ESNext", "dom"],
+        "sourceMap": true,
         // "module": "commonjs",
+        "module": "ESNext",
         "strict": true,
         "declaration": true,
         "noImplicitOverride": true,
         "noUnusedLocals": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true
     }
     // "include": ["./", "**/*.d.ts"]
 }
