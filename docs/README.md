@@ -1,3 +1,5 @@
+index.md - v1.1.1 / [Exports](modules.md)
+
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][codecov-image]][codecov-url]
@@ -17,8 +19,6 @@
 [snyk-url]: https://snyk.io/test/npm/postmessager
 [download-image]: https://img.shields.io/npm/dm/postmessager.svg?style=flat-square
 [download-url]: https://npmjs.org/package/postmessager
-
-# **完整文档请查阅： [API 完整文档](./docs/modules.md)**
 
 # 介绍
 

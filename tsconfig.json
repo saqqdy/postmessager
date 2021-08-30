@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
-        "allowJs": true,
+        "allowJs": false,
         "target": "es6",
-        "moduleResolution": "node",
+        // "moduleResolution": "node",
         // "lib": ["es5", "es6", "dom", "dom.iterable", "esnext"],
+        "noLib": false,
         "lib": ["ESNext", "dom"],
         "sourceMap": true,
         // "module": "commonjs",
