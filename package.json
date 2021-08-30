@@ -1,6 +1,6 @@
 {
     "name": "postmessager",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "postmessage集成方案",
     "main": "lib/index.js",
     "unpkg": "lib/index.js",
