@@ -1,7 +1,6 @@
-import { readonly } from 'core-decorators'
+// import { readonly } from 'core-decorators'
 import addEvent from 'js-cool/lib/addEvent'
 import removeEvent from 'js-cool/lib/removeEvent'
-import uuid from 'js-cool/lib/uuid'
 
 // export interface Content {
 //     actionName?: string
@@ -30,8 +29,7 @@ class PostMessager {
     messager: {
         [type: string]: any
     } = {}
-    @readonly
-    uuid: string = uuid()
+    // @readonly
     instance: {
         [type: string]: any
     }
@@ -87,8 +85,7 @@ class PostMessager {
                 JSON.stringify({
                     type,
                     content,
-                    pageId,
-                    uuid: this.uuid
+                    pageId
                 }),
                 '*'
             )
@@ -105,8 +102,7 @@ class PostMessager {
                 JSON.stringify({
                     type,
                     content,
-                    pageId,
-                    uuid: this.uuid
+                    pageId
                 }),
                 '*'
             )
@@ -116,8 +112,7 @@ class PostMessager {
                     JSON.stringify({
                         type,
                         content,
-                        pageId,
-                        uuid: this.uuid
+                        pageId
                     }),
                     '*'
                 )

@@ -16,7 +16,7 @@ const baseConfig = {
         chunkFilename: '[id].js',
         libraryTarget: 'umd',
         libraryExport: 'default',
-        library: 'POSTMESSAGER',
+        library: 'PostMessager',
         umdNamedDefine: true,
         globalObject: "typeof self !== 'undefined' ? self : this"
     },
