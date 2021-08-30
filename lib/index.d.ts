@@ -12,7 +12,6 @@ declare class PostMessager {
     messager: {
         [type: string]: any;
     };
-    uuid: string;
     instance: {
         [type: string]: any;
     };
