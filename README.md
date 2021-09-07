@@ -7,8 +7,8 @@
 
 [npm-image]: https://img.shields.io/npm/v/postmessager.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/postmessager
-[travis-image]: https://travis-ci.org/saqqdy/postmessager.svg?branch=master
-[travis-url]: https://travis-ci.org/saqqdy/postmessager
+[travis-image]: https://travis-ci.com/saqqdy/postmessager.svg?branch=master
+[travis-url]: https://travis-ci.com/saqqdy/postmessager
 [codecov-image]: https://img.shields.io/codecov/c/github/saqqdy/postmessager.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/saqqdy/postmessager?branch=master
 [david-image]: https://img.shields.io/david/saqqdy/postmessager.svg?style=flat-square
