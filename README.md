@@ -1,3 +1,5 @@
+# postmessager
+
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][codecov-image]][codecov-url]
@@ -24,13 +26,13 @@
 [license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [license-url]: LICENSE
 
-# **完整文档请查阅： [API 完整文档](./docs/classes/default.md)**
+## **完整文档请查阅： [API 完整文档](./docs/classes/default.md)**
 
-# 介绍
+## 介绍
 
 postmessager
 
-# 安装教程
+## 安装教程
 
 ```shell
 # 通过npm安装
@@ -50,21 +52,21 @@ import PostMessager from 'postmessager'
 
 1. 通过 require 引入
 
-```js
-// 在你的main.js文件里面加上下面这一行
-const PostMessager = require('postmessager')
-```
+    ```js
+    // 在你的main.js文件里面加上下面这一行
+    const PostMessager = require('postmessager')
+    ```
 
 2. html 静态页直接使用
 
-```html
-<!-- 在你的html代码上加上script标签，使用CDN链接引入 -->
-<script src="https://unpkg.com/postmessager@0.1.0/lib/index.umd.js"></script>
-```
+    ```html
+    <!-- 在你的html代码上加上script标签，使用CDN链接引入 -->
+    <script src="https://unpkg.com/postmessager@0.1.0/lib/index.umd.js"></script>
+    ```
 
-# 使用
+## 使用
 
-## 1. 在 vue 中使用
+### 1. 在 vue 中使用
 
 ```vue
 <script>
@@ -89,7 +91,7 @@ export default {
 </script>
 ```
 
-## 2. js 项目中使用
+### 2. js 项目中使用
 
 ```js
 const messager = new PostMessager()
@@ -102,14 +104,14 @@ function getQuery(data) {
 }
 ```
 
-# 参与贡献
+## 参与贡献
 
 1. Fork 本仓库
 2. 新建 Feat_xxx 分支
 3. 提交代码
 4. 新建 Pull Request
 
-# 我的相关
+## 我的相关
 
 -   **_使用_** _Readme_XXX.md_ 来支持不同的语言，`例如` _Readme_en.md, Readme_zh.md_
 -   我的 Github：[https://github.com/saqqdy](https://github.com/saqqdy)
