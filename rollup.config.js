@@ -42,7 +42,6 @@ export default [
                 sourceMap: true
             })
         ],
-        // @ts-ignore
         external(id) {
             return ['core-js'].some(k => new RegExp('^' + k).test(id))
         }
@@ -74,7 +73,6 @@ export default [
                 abortOnError: false
             })
         ],
-        // @ts-ignore
         external(id) {
             return ['core-js'].some(k => new RegExp('^' + k).test(id))
         }
