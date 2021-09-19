@@ -1,13 +1,10 @@
-const fs = require('fs')
-const path = require('path')
 import resolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import { uglify } from 'rollup-plugin-uglify'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
-const config = require('./config')
+const config = require('./config.json')
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -45,8 +42,8 @@ export default [
                 sourceMap: true
             })
         ],
+        // @ts-ignore
         external(id) {
-            // return ['core-js', 'tslib'].some(k => new RegExp('^' + k).test(id))
             return ['core-js'].some(k => new RegExp('^' + k).test(id))
         }
     },
@@ -77,6 +74,7 @@ export default [
                 abortOnError: false
             })
         ],
+        // @ts-ignore
         external(id) {
             return ['core-js'].some(k => new RegExp('^' + k).test(id))
         }

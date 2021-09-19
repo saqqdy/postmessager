@@ -2,7 +2,7 @@ const path = require('path')
 const { merge } = require('webpack-merge')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
-const config = require('./config')
+const config = require('./config.json')
 let plugins = [new ProgressBarPlugin()]
 
 const baseConfig = {
