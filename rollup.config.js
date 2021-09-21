@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
-const config = require('./config.json')
+const config = require('./config')
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -14,11 +14,13 @@ export default [
         output: [
             {
                 file: pkg.main,
-                format: 'cjs'
+                format: 'cjs',
+                banner: config.banner
             },
             {
                 file: 'lib/index.esm.js',
-                format: 'es'
+                format: 'es',
+                banner: config.banner
             }
         ],
         plugins: [
@@ -51,11 +53,13 @@ export default [
         output: [
             {
                 file: 'es/index.js',
-                format: 'cjs'
+                format: 'cjs',
+                banner: config.banner
             },
             {
                 file: 'es/index.esm.js',
-                format: 'es'
+                format: 'es',
+                banner: config.banner
             }
         ],
         plugins: [
