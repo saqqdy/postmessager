@@ -1,3 +1,9 @@
+/*!
+ * postmessager v1.1.2
+ * postmessage集成方案
+ * (c) 2021-2021 saqqdy 
+ * Released under the MIT License.
+ */
 // export interface CustomEvent extends Event {
 //     returnValue: boolean
 //     cancelBubble: boolean
