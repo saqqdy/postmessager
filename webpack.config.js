@@ -35,6 +35,7 @@ const baseConfig = {
         children: false
     },
     optimization: {
+        minimize: true,
         minimizer: [
             new TerserPlugin({
                 parallel: true,
