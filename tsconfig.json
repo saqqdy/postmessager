@@ -1,24 +1,24 @@
 {
-    "compilerOptions": {
-        "allowJs": false,
-        "target": "es6",
-        "moduleResolution": "node",
-        // "lib": ["es5", "es6", "dom", "dom.iterable", "esnext"],
-        "noLib": false,
-        "lib": ["ESNext", "dom"],
-        "sourceMap": true,
-        // "module": "commonjs",
-        "module": "ESNext",
-        "strict": true,
-        "declaration": true,
-        "resolveJsonModule": true,
-        "noImplicitOverride": true,
-        "noUnusedLocals": true,
-        "esModuleInterop": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true
-    },
-    "include": ["**/*.ts"],
-    "exclude": ["node_modules/**", "**/__tests__"]
+	"compilerOptions": {
+		"allowJs": false,
+		"target": "es6",
+		"moduleResolution": "node",
+		// "lib": ["es5", "es6", "dom", "dom.iterable", "esnext"],
+		"noLib": false,
+		"lib": ["ESNext", "dom"],
+		"sourceMap": true,
+		// "module": "commonjs",
+		"module": "ESNext",
+		"strict": true,
+		"declaration": true,
+		"resolveJsonModule": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules/**", "**/__tests__"]
 }

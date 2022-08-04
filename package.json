@@ -1,94 +1,102 @@
 {
-    "name": "postmessager",
-    "version": "1.1.2",
-    "description": "postmessage集成方案",
-    "main": "lib/index.js",
-    "unpkg": "lib/index.js",
-    "module": "lib/index.esm.js",
-    "files": [
-        "es",
-        "lib",
-        "typings"
-    ],
-    "directories": {
-        "es": "es",
-        "lib": "lib",
-        "src": "src"
-    },
-    "scripts": {
-        "build": "rimraf lib es && rollup -c",
-        "build:umd": "webpack --config webpack.config.js",
-        "build:types": "run-s build-temp-types roll-types",
-        "build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
-        "patch-types": "node script/patchTypes",
-        "roll-types": "api-extractor run && rimraf temp",
-        "dev": "rollup -c -w",
-        "dist": "run-s eslint prettier build build:umd build:types",
-        "docs": "rimraf docs && typedoc",
-        "test": "node test/test.js",
-        "pretest": "npm run build",
-        "eslint": "eslint --fix --ext .ts,.js",
-        "prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
-        "prettier:docs": "prettier --write \"*.{md}\"",
-        "pub": "git add . && git commit -m $npm_package_version && git pull && git push"
-    },
-    "dependencies": {
-        "core-js": "^3.18.0",
-        "js-cool": "^2.1.2"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.15.7",
-        "@babel/core": "^7.15.5",
-        "@babel/eslint-parser": "^7.15.7",
-        "@babel/plugin-proposal-class-properties": "^7.14.5",
-        "@babel/plugin-proposal-decorators": "^7.15.4",
-        "@babel/plugin-transform-runtime": "^7.15.0",
-        "@babel/preset-env": "^7.15.6",
-        "@babel/preset-typescript": "^7.15.0",
-        "@microsoft/api-extractor": "^7.18.9",
-        "@rollup/plugin-babel": "^5.2.3",
-        "@rollup/plugin-commonjs": "^20.0.0",
-        "@rollup/plugin-node-resolve": "^13.0.2",
-        "@saqqdy/prettier-config": "^1.0.3",
-        "@typescript-eslint/eslint-plugin": "^4.31.2",
-        "@typescript-eslint/parser": "^4.31.2",
-        "babel-loader": "^8.2.2",
-        "core-decorators": "^0.20.0",
-        "esbuild": "^0.12.28",
-        "eslint": "^7.31.0",
-        "eslint-config-sets": "^1.5.3",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^2.4.1",
-        "progress-bar-webpack-plugin": "^2.1.0",
-        "rimraf": "^3.0.2",
-        "rollup": "^2.56.2",
-        "rollup-plugin-typescript2": "^0.30.0",
-        "rollup-plugin-uglify": "^6.0.4",
-        "terser-webpack-plugin": "^5.2.4",
-        "typedoc": "^0.22.4",
-        "typedoc-plugin-markdown": "^3.11.0",
-        "typescript": "^4.4.3",
-        "webpack": "^5.53.0",
-        "webpack-cli": "^4.8.0",
-        "webpack-merge": "^5.8.0",
-        "webpack-node-externals": "^3.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/saqqdy/postmessager.git"
-    },
-    "keywords": [
-        "postmessager",
-        "saqqdy"
-    ],
-    "author": {
-        "name": "saqqdy",
-        "email": "saqqdy@qq.com",
-        "url": "http://www.saqqdy.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/saqqdy/postmessager/issues"
-    },
-    "homepage": "https://github.com/saqqdy/postmessager#readme"
+	"name": "postmessager",
+	"description": "postmessage集成方案",
+	"version": "1.2.0-beta.1",
+	"packageManager": "pnpm@7.7.0",
+	"main": "lib/index.js",
+	"module": "lib/index.esm.js",
+	"unpkg": "lib/index.js",
+	"files": [
+		"es",
+		"lib",
+		"typings"
+	],
+	"directories": {
+		"es": "es",
+		"lib": "lib",
+		"src": "src"
+	},
+	"scripts": {
+		"build": "rimraf lib es && rollup -c",
+		"build:umd": "webpack --config webpack.config.js",
+		"build:types": "run-s build-temp-types roll-types",
+		"build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
+		"patch-types": "node script/patchTypes",
+		"roll-types": "api-extractor run && rimraf temp",
+		"dev": "rollup -c -w",
+		"dist": "run-s eslint prettier build build:umd build:types",
+		"docs": "rimraf docs && typedoc",
+		"test": "node test/test.js",
+		"pretest": "npm run build",
+		"eslint": "eslint --fix --ext .ts,.js",
+		"prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
+		"prettier:docs": "prettier --write \"*.{md}\"",
+		"pub": "git add . && git commit -m $npm_package_version && git pull && git push"
+	},
+	"dependencies": {
+		"core-js": "^3.18.0",
+		"js-cool": "^2.1.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.15.7",
+		"@babel/core": "^7.15.5",
+		"@babel/plugin-proposal-class-properties": "^7.14.5",
+		"@babel/plugin-proposal-decorators": "^7.15.4",
+		"@babel/plugin-transform-runtime": "^7.15.0",
+		"@babel/preset-env": "^7.15.6",
+		"@babel/preset-typescript": "^7.15.0",
+		"@eslint-sets/eslint-config-ts": "^3.0.4",
+		"@microsoft/api-extractor": "^7.18.9",
+		"@rollup/plugin-babel": "^5.2.3",
+		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-node-resolve": "^13.0.2",
+		"babel-loader": "^8.2.2",
+		"core-decorators": "^0.20.0",
+		"esbuild": "^0.12.28",
+		"eslint": "^8.21.0",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.7.1",
+		"prettier-config-common": "^1.2.0",
+		"progress-bar-webpack-plugin": "^2.1.0",
+		"rimraf": "^3.0.2",
+		"rollup": "^2.56.2",
+		"rollup-plugin-typescript2": "^0.30.0",
+		"terser-webpack-plugin": "^5.2.4",
+		"typedoc": "^0.23.10",
+		"typedoc-plugin-markdown": "^3.13.4",
+		"typescript": "^4.4.3",
+		"webpack": "^5.53.0",
+		"webpack-cli": "^4.8.0",
+		"webpack-merge": "^5.8.0",
+		"webpack-node-externals": "^3.0.0"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@babel/core",
+				"webpack"
+			],
+			"allowedVersions": {
+				"eslint": "^8.10.0"
+			}
+		}
+	},
+	"keywords": [
+		"postmessager",
+		"saqqdy"
+	],
+	"license": "MIT",
+	"author": {
+		"name": "saqqdy",
+		"email": "saqqdy@qq.com",
+		"url": "http://www.saqqdy.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/postmessager.git"
+	},
+	"bugs": {
+		"url": "https://github.com/saqqdy/postmessager/issues"
+	},
+	"homepage": "https://github.com/saqqdy/postmessager#readme"
 }

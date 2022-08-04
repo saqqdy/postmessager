@@ -7,7 +7,7 @@ postmessage 集成方案
 **`example`**
 
 ```js
-let messager = new PostMessager()
+const messager = new PostMessager()
 messager.subscribe('action', content => {
     console.log(21, content)
 })

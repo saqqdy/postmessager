@@ -1,545 +1,545 @@
 {
-    "id": 0,
-    "name": "index.md - v1.1.1",
-    "kind": 0,
-    "kindString": "Project",
-    "flags": {},
-    "originalName": "index.md",
-    "children": [
-        {
-            "id": 1,
-            "name": "default",
-            "kind": 128,
-            "kindString": "Class",
-            "flags": {},
-            "comment": {
-                "shortText": "postmessage集成方案",
-                "tags": [
-                    {
-                        "tag": "example",
-                        "text": "\n```js\nlet messager = new PostMessager();\nmessager.subscribe('action', (content) => { console.log(21, content); });\nmessager.postMessageUp('action', { up: 201 });\n```\n"
-                    }
-                ]
-            },
-            "children": [
-                {
-                    "id": 2,
-                    "name": "constructor",
-                    "kind": 512,
-                    "kindString": "Constructor",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 37,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 3,
-                            "name": "new default",
-                            "kind": 16384,
-                            "kindString": "Constructor signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 4,
-                                    "name": "instance",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "object"
-                                    },
-                                    "defaultValue": "{}"
-                                },
-                                {
-                                    "id": 5,
-                                    "name": "type",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    },
-                                    "defaultValue": "'invokeCustomEvent'"
-                                }
-                            ],
-                            "type": {
-                                "type": "reference",
-                                "id": 1,
-                                "name": "PostMessager"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 10,
-                    "name": "instance",
-                    "kind": 1024,
-                    "kindString": "Property",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 33,
-                            "character": 4
-                        }
-                    ],
-                    "type": {
-                        "type": "reflection",
-                        "declaration": {
-                            "id": 11,
-                            "name": "__type",
-                            "kind": 65536,
-                            "kindString": "Type literal",
-                            "flags": {},
-                            "indexSignature": {
-                                "id": 12,
-                                "name": "__index",
-                                "kind": 8192,
-                                "kindString": "Index signature",
-                                "flags": {},
-                                "parameters": [
-                                    {
-                                        "id": 13,
-                                        "name": "type",
-                                        "kind": 32768,
-                                        "flags": {},
-                                        "type": {
-                                            "type": "intrinsic",
-                                            "name": "string"
-                                        }
-                                    }
-                                ],
-                                "type": {
-                                    "type": "intrinsic",
-                                    "name": "any"
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "id": 6,
-                    "name": "messager",
-                    "kind": 1024,
-                    "kindString": "Property",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 29,
-                            "character": 4
-                        }
-                    ],
-                    "type": {
-                        "type": "reflection",
-                        "declaration": {
-                            "id": 7,
-                            "name": "__type",
-                            "kind": 65536,
-                            "kindString": "Type literal",
-                            "flags": {},
-                            "indexSignature": {
-                                "id": 8,
-                                "name": "__index",
-                                "kind": 8192,
-                                "kindString": "Index signature",
-                                "flags": {},
-                                "parameters": [
-                                    {
-                                        "id": 9,
-                                        "name": "type",
-                                        "kind": 32768,
-                                        "flags": {},
-                                        "type": {
-                                            "type": "intrinsic",
-                                            "name": "string"
-                                        }
-                                    }
-                                ],
-                                "type": {
-                                    "type": "intrinsic",
-                                    "name": "any"
-                                }
-                            }
-                        }
-                    },
-                    "defaultValue": "{}"
-                },
-                {
-                    "id": 14,
-                    "name": "type",
-                    "kind": 1024,
-                    "kindString": "Property",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 36,
-                            "character": 4
-                        }
-                    ],
-                    "type": {
-                        "type": "intrinsic",
-                        "name": "string"
-                    }
-                },
-                {
-                    "id": 22,
-                    "name": "createEventHandler",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 57,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 23,
-                            "name": "createEventHandler",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 24,
-                                    "name": "__namedParameters",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "any"
-                                    }
-                                }
-                            ],
-                            "type": {
-                                "type": "union",
-                                "types": [
-                                    {
-                                        "type": "intrinsic",
-                                        "name": "boolean"
-                                    },
-                                    {
-                                        "type": "intrinsic",
-                                        "name": "void"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 32,
-                    "name": "postMessageDown",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 94,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 33,
-                            "name": "postMessageDown",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 34,
-                                    "name": "name",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "union",
-                                        "types": [
-                                            {
-                                                "type": "literal",
-                                                "value": null
-                                            },
-                                            {
-                                                "type": "intrinsic",
-                                                "name": "string"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "id": 35,
-                                    "name": "actionName",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                },
-                                {
-                                    "id": 36,
-                                    "name": "content",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "any"
-                                    }
-                                },
-                                {
-                                    "id": 37,
-                                    "name": "pageId",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                }
-                            ],
-                            "type": {
-                                "type": "intrinsic",
-                                "name": "void"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 27,
-                    "name": "postMessageUp",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 77,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 28,
-                            "name": "postMessageUp",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 29,
-                                    "name": "actionName",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                },
-                                {
-                                    "id": 30,
-                                    "name": "content",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "any"
-                                    },
-                                    "defaultValue": "{}"
-                                },
-                                {
-                                    "id": 31,
-                                    "name": "pageId",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                }
-                            ],
-                            "type": {
-                                "type": "intrinsic",
-                                "name": "void"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 25,
-                    "name": "removeEventHandler",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 73,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 26,
-                            "name": "removeEventHandler",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "type": {
-                                "type": "intrinsic",
-                                "name": "void"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 15,
-                    "name": "subscribe",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 48,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 16,
-                            "name": "subscribe",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 17,
-                                    "name": "actionName",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                },
-                                {
-                                    "id": 18,
-                                    "name": "handler",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "any"
-                                    }
-                                }
-                            ],
-                            "type": {
-                                "type": "intrinsic",
-                                "name": "void"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 19,
-                    "name": "unsubscribe",
-                    "kind": 2048,
-                    "kindString": "Method",
-                    "flags": {},
-                    "sources": [
-                        {
-                            "fileName": "index.ts",
-                            "line": 53,
-                            "character": 4
-                        }
-                    ],
-                    "signatures": [
-                        {
-                            "id": 20,
-                            "name": "unsubscribe",
-                            "kind": 4096,
-                            "kindString": "Call signature",
-                            "flags": {},
-                            "parameters": [
-                                {
-                                    "id": 21,
-                                    "name": "action",
-                                    "kind": 32768,
-                                    "kindString": "Parameter",
-                                    "flags": {},
-                                    "type": {
-                                        "type": "intrinsic",
-                                        "name": "string"
-                                    }
-                                }
-                            ],
-                            "type": {
-                                "type": "intrinsic",
-                                "name": "void"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "groups": [
-                {
-                    "title": "Constructors",
-                    "kind": 512,
-                    "children": [2]
-                },
-                {
-                    "title": "Properties",
-                    "kind": 1024,
-                    "children": [10, 6, 14]
-                },
-                {
-                    "title": "Methods",
-                    "kind": 2048,
-                    "children": [22, 32, 27, 25, 15, 19]
-                }
-            ],
-            "sources": [
-                {
-                    "fileName": "index.ts",
-                    "line": 28,
-                    "character": 6
-                }
-            ]
-        }
-    ],
-    "groups": [
-        {
-            "title": "Classes",
-            "kind": 128,
-            "children": [1]
-        }
-    ],
-    "sources": [
-        {
-            "fileName": "index.ts",
-            "line": 2,
-            "character": 0
-        }
-    ]
+	"id": 0,
+	"name": "index.md - v1.1.1",
+	"kind": 0,
+	"kindString": "Project",
+	"flags": {},
+	"originalName": "index.md",
+	"children": [
+		{
+			"id": 1,
+			"name": "default",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {},
+			"comment": {
+				"shortText": "postmessage集成方案",
+				"tags": [
+					{
+						"tag": "example",
+						"text": "\n```js\nlet messager = new PostMessager();\nmessager.subscribe('action', (content) => { console.log(21, content); });\nmessager.postMessageUp('action', { up: 201 });\n```\n"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 37,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 3,
+							"name": "new default",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 4,
+									"name": "instance",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "object"
+									},
+									"defaultValue": "{}"
+								},
+								{
+									"id": 5,
+									"name": "type",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "'invokeCustomEvent'"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 1,
+								"name": "PostMessager"
+							}
+						}
+					]
+				},
+				{
+					"id": 10,
+					"name": "instance",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 33,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 11,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"indexSignature": {
+								"id": 12,
+								"name": "__index",
+								"kind": 8192,
+								"kindString": "Index signature",
+								"flags": {},
+								"parameters": [
+									{
+										"id": 13,
+										"name": "type",
+										"kind": 32768,
+										"flags": {},
+										"type": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								],
+								"type": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					}
+				},
+				{
+					"id": 6,
+					"name": "messager",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 29,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 7,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"indexSignature": {
+								"id": 8,
+								"name": "__index",
+								"kind": 8192,
+								"kindString": "Index signature",
+								"flags": {},
+								"parameters": [
+									{
+										"id": 9,
+										"name": "type",
+										"kind": 32768,
+										"flags": {},
+										"type": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								],
+								"type": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					},
+					"defaultValue": "{}"
+				},
+				{
+					"id": 14,
+					"name": "type",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 36,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 22,
+					"name": "createEventHandler",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 57,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 23,
+							"name": "createEventHandler",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 24,
+									"name": "__namedParameters",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"id": 32,
+					"name": "postMessageDown",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 94,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 33,
+							"name": "postMessageDown",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 34,
+									"name": "name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "literal",
+												"value": null
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								},
+								{
+									"id": 35,
+									"name": "actionName",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 36,
+									"name": "content",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 37,
+									"name": "pageId",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "postMessageUp",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 77,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 28,
+							"name": "postMessageUp",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 29,
+									"name": "actionName",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 30,
+									"name": "content",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"defaultValue": "{}"
+								},
+								{
+									"id": 31,
+									"name": "pageId",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 25,
+					"name": "removeEventHandler",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 73,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 26,
+							"name": "removeEventHandler",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 15,
+					"name": "subscribe",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 48,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 16,
+							"name": "subscribe",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 17,
+									"name": "actionName",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 18,
+									"name": "handler",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 19,
+					"name": "unsubscribe",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 53,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 20,
+							"name": "unsubscribe",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 21,
+									"name": "action",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [2]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [10, 6, 14]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [22, 32, 27, 25, 15, 19]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 28,
+					"character": 6
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [1]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 2,
+			"character": 0
+		}
+	]
 }
