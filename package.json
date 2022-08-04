@@ -24,6 +24,9 @@
 		"patch-types": "node script/patchTypes",
 		"roll-types": "api-extractor run && rimraf temp",
 		"dev": "rollup -c -w",
+		"pub": "tscjs scripts/publish",
+		"unpub": "tscjs scripts/unpublish",
+		"sync": "tscjs scripts/sync",
 		"dist": "run-s eslint prettier build build:umd build:types",
 		"docs": "rimraf docs && typedoc",
 		"test": "node test/test.js",
@@ -31,7 +34,7 @@
 		"eslint": "eslint --fix --ext .ts,.js",
 		"prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
 		"prettier:docs": "prettier --write \"*.{md}\"",
-		"pub": "git add . && git commit -m $npm_package_version && git pull && git push"
+		"pub_old": "git add . && git commit -m $npm_package_version && git pull && git push"
 	},
 	"dependencies": {
 		"core-js": "^3.18.0",
@@ -62,6 +65,7 @@
 		"rollup": "^2.56.2",
 		"rollup-plugin-typescript2": "^0.30.0",
 		"terser-webpack-plugin": "^5.2.4",
+		"tsnd": "^1.0.2",
 		"typedoc": "^0.23.10",
 		"typedoc-plugin-markdown": "^3.13.4",
 		"typescript": "^4.4.3",
