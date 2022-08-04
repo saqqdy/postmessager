@@ -6,4 +6,4 @@ typedoc.js linguist-vendored
 *.config.js linguist-vendored
 lib/* linguist-vendored
 es/* linguist-vendored
-script/* linguist-vendored
+scripts/* linguist-vendored

@@ -21,7 +21,7 @@
 		"build:umd": "webpack --config webpack.config.js",
 		"build:types": "run-s build-temp-types roll-types",
 		"build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
-		"patch-types": "node script/patchTypes",
+		"patch-types": "node scripts/patchTypes",
 		"roll-types": "api-extractor run && rimraf temp",
 		"dev": "rollup -c -w",
 		"pub": "tscjs scripts/publish",

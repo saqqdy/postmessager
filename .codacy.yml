@@ -24,4 +24,4 @@ exclude_paths:
     - "docs/**"
     - "lib/**"
     - "es/**"
-    - "script/**"
+    - "scripts/**"
