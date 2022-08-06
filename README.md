@@ -1,39 +1,22 @@
+<div style="text-align: center;" align="center">
+
 # postmessager
+
+这是一个 iframe postmessage 通信整体方案
 
 [![NPM version][npm-image]][npm-url]
 [![Codacy Badge][codacy-image]][codacy-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 [![gzip][gzip-image]][gzip-url]
 [![License][license-image]][license-url]
 
 [![Sonar][sonar-image]][sonar-url]
 
-[npm-image]: https://img.shields.io/npm/v/postmessager.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/postmessager
-[codacy-image]: https://app.codacy.com/project/badge/Grade/f70d4880e4ad4f40aa970eb9ee9d0696
-[codacy-url]: https://www.codacy.com/gh/saqqdy/postmessager/dashboard?utm_source=github.com&utm_medium=referral&utm_content=saqqdy/postmessager&utm_campaign=Badge_Grade
-[travis-image]: https://travis-ci.com/saqqdy/postmessager.svg?branch=master
-[travis-url]: https://travis-ci.com/saqqdy/postmessager
-[codecov-image]: https://img.shields.io/codecov/c/github/saqqdy/postmessager.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/saqqdy/postmessager?branch=master
-[david-image]: https://img.shields.io/david/saqqdy/postmessager.svg?style=flat-square
-[david-url]: https://david-dm.org/saqqdy/postmessager
-[snyk-image]: https://snyk.io/test/npm/postmessager/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/postmessager
-[download-image]: https://img.shields.io/npm/dm/postmessager.svg?style=flat-square
-[download-url]: https://npmjs.org/package/postmessager
-[gzip-image]: http://img.badgesize.io/https://unpkg.com/postmessager/lib/index.js?compression=gzip&label=gzip%20size:%20JS
-[gzip-url]: http://img.badgesize.io/https://unpkg.com/postmessager/lib/index.js?compression=gzip&label=gzip%20size:%20JS
-[license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
-[license-url]: LICENSE
-[sonar-image]: https://sonarcloud.io/api/project_badges/quality_gate?project=saqqdy_postmessager
-[sonar-url]: https://sonarcloud.io/dashboard?id=saqqdy_postmessager
-
 ## **完整文档请查阅： [API 完整文档](./docs/classes/default.md)**
+
+</div>
 
 ## 介绍
 
@@ -68,7 +51,7 @@ import PostMessager from 'postmessager'
 
     ```html
     <!-- 在你的html代码上加上script标签，使用CDN链接引入 -->
-    <script src="https://unpkg.com/postmessager@0.1.0/lib/index.umd.js"></script>
+    <script src="https://unpkg.com/postmessager@latest/dist/index.min.js"></script>
     ```
 
 ## 使用
@@ -87,7 +70,7 @@ export default {
     },
     created() {
         this.messager = new PostMessager(this, 'invokeCustomEvent')
-        this.messager.subcribe('getQuery', this.getQuery)
+        this.messager.subscribe('getQuery', this.getQuery)
     },
     methods: {
         getQuery(data) {
@@ -102,7 +85,7 @@ export default {
 
 ```js
 const messager = new PostMessager()
-messager.subcribe('getQuery', getQuery)
+messager.subscribe('getQuery', getQuery)
 messager.postMessageUp('actionName', {})
 messager.postMessageDown('iframeName', 'actionName', {})
 
@@ -124,3 +107,20 @@ function getQuery(data) {
 -   我的 Github：[https://github.com/saqqdy](https://github.com/saqqdy)
 -   我的 npm：[https://npmjs.com/~saqqdy](https://npmjs.com/~saqqdy)
 -   我的个人网站 [http://www.saqqdy.com](http://www.saqqdy.com)
+
+[npm-image]: https://img.shields.io/npm/v/postmessager.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/postmessager
+[codacy-image]: https://app.codacy.com/project/badge/Grade/f70d4880e4ad4f40aa970eb9ee9d0696
+[codacy-url]: https://www.codacy.com/gh/saqqdy/postmessager/dashboard?utm_source=github.com&utm_medium=referral&utm_content=saqqdy/postmessager&utm_campaign=Badge_Grade
+[travis-image]: https://travis-ci.com/saqqdy/postmessager.svg?branch=master
+[travis-url]: https://travis-ci.com/saqqdy/postmessager
+[codecov-image]: https://img.shields.io/codecov/c/github/saqqdy/postmessager.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/saqqdy/postmessager?branch=master
+[download-image]: https://img.shields.io/npm/dm/postmessager.svg?style=flat-square
+[download-url]: https://npmjs.org/package/postmessager
+[gzip-image]: http://img.badgesize.io/https://unpkg.com/postmessager/lib/index.js?compression=gzip&label=gzip%20size:%20JS
+[gzip-url]: http://img.badgesize.io/https://unpkg.com/postmessager/lib/index.js?compression=gzip&label=gzip%20size:%20JS
+[license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[license-url]: LICENSE
+[sonar-image]: https://sonarcloud.io/api/project_badges/quality_gate?project=saqqdy_postmessager
+[sonar-url]: https://sonarcloud.io/dashboard?id=saqqdy_postmessager

@@ -72,7 +72,7 @@ export default {
     },
     created() {
         this.messager = new PostMessager(this, 'invokeCustomEvent')
-        this.messager.subcribe('getQuery', this.getQuery)
+        this.messager.subscribe('getQuery', this.getQuery)
     },
     methods: {
         getQuery(data) {
@@ -87,7 +87,7 @@ export default {
 
 ```js
 const messager = new PostMessager()
-messager.subcribe('getQuery', getQuery)
+messager.subscribe('getQuery', getQuery)
 messager.postMessageUp('actionName', {})
 messager.postMessageDown('iframeName', 'actionName', {})
 
