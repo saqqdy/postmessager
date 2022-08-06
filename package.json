@@ -1,23 +1,32 @@
 {
 	"name": "postmessager",
 	"description": "postmessage集成方案",
-	"version": "1.2.0-beta.1",
+	"version": "1.2.0-beta.2",
 	"packageManager": "pnpm@7.7.0",
-	"main": "lib/index.js",
-	"module": "lib/index.esm.js",
-	"unpkg": "lib/index.js",
+	"main": "./dist/index.cmd.js",
+	"module": "./dist/index.mjs",
+	"unpkg": "./dist/index.min.js",
+	"types": "./typings/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.cmd.js",
+			"import": "./dist/index.mjs"
+		},
+		"./dist": "./dist/index.cmd.js",
+		"./dist/*": "./dist/*.mjs",
+		"./*": "./*"
+	},
 	"files": [
-		"es",
-		"lib",
+		"dist",
 		"typings"
 	],
 	"directories": {
-		"es": "es",
-		"lib": "lib",
-		"src": "src"
+		"dist": "dist",
+		"src": "src",
+		"typings": "typings"
 	},
 	"scripts": {
-		"build": "rimraf lib es && rollup -c",
+		"build": "pnpm run clean && rollup -c",
 		"build:umd": "webpack --config webpack.config.js",
 		"build:types": "run-s build-temp-types roll-types",
 		"build-temp-types": "tsc --emitDeclarationOnly --outDir temp/ -p src/",
@@ -28,9 +37,10 @@
 		"unpub": "tscjs scripts/unpublish",
 		"sync": "tscjs scripts/sync",
 		"dist": "run-s eslint prettier build build:umd build:types",
+		"clean": "rimraf dist",
 		"docs": "rimraf docs && typedoc",
 		"test": "node test/test.js",
-		"pretest": "npm run build",
+		"pretest": "pnpm run build",
 		"eslint": "eslint --fix --ext .ts,.js",
 		"prettier": "prettier --write \"**/*.{js,ts,json,md}\"",
 		"prettier:docs": "prettier --write \"*.{md}\"",
@@ -87,6 +97,7 @@
 	},
 	"keywords": [
 		"postmessager",
+		"postmessage lib",
 		"saqqdy"
 	],
 	"license": "MIT",

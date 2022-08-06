@@ -6,7 +6,7 @@ import pkg from './package.json'
 
 const config = require('./config')
 
-const production = !process.env.ROLLUP_WATCH
+// const production = !process.env.ROLLUP_WATCH
 
 export default [
 	{
@@ -18,7 +18,7 @@ export default [
 				banner: config.banner
 			},
 			{
-				file: 'lib/index.esm.js',
+				file: pkg.module,
 				format: 'es',
 				banner: config.banner
 			}
@@ -29,7 +29,8 @@ export default [
 			typescript({
 				tsconfigOverride: {
 					compilerOptions: {
-						declaration: false
+						declaration: false,
+						target: 'es5'
 					},
 					include: ['src/**/*'],
 					exclude: ['node_modules', '__tests__', 'core-js']
@@ -45,40 +46,9 @@ export default [
 			})
 		],
 		external(id) {
-			return ['core-js'].some(k => new RegExp('^' + k).test(id))
-		}
-	},
-	{
-		input: 'src/index.ts',
-		output: [
-			{
-				file: 'es/index.js',
-				format: 'cjs',
-				banner: config.banner
-			},
-			{
-				file: 'es/index.esm.js',
-				format: 'es',
-				banner: config.banner
-			}
-		],
-		plugins: [
-			resolve({ extensions: config.extensions }),
-			commonjs(),
-			typescript({
-				tsconfigOverride: {
-					compilerOptions: {
-						declaration: false,
-						target: 'es6'
-					},
-					include: ['src/**/*'],
-					exclude: ['node_modules', '__tests__', 'core-js']
-				},
-				abortOnError: false
-			})
-		],
-		external(id) {
-			return ['core-js'].some(k => new RegExp('^' + k).test(id))
+			return ['core-js', 'core-js'].some(k =>
+				new RegExp('^' + k).test(id)
+			)
 		}
 	}
 ]

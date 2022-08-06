@@ -1,20 +1,23 @@
-const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
+const watch = process.env.BUILD_WATCH === 'true'
 const config = require('./config')
 const plugins = [new ProgressBarPlugin()]
 
 const baseConfig = {
 	mode: 'production',
+	watch,
 	target: 'web',
-	entry: './src/index.ts',
+	entry: {
+		index: ['./src/index.ts'],
+		'index.min': ['./src/index.ts']
+	},
 	output: {
-		// path: path.resolve(process.cwd(), './lib'),
 		publicPath: '/',
-		filename: 'index.umd.js',
+		filename: '[name].js',
 		chunkFilename: '[id].js',
 		libraryTarget: 'umd',
 		libraryExport: 'default',
@@ -35,9 +38,11 @@ const baseConfig = {
 		children: false
 	},
 	optimization: {
-		minimize: true,
+		minimize: !watch,
 		minimizer: [
 			new TerserPlugin({
+				test: /\.js(\?.*)?$/i,
+				include: /min/,
 				parallel: true,
 				extractComments: false
 			}),
@@ -53,24 +58,6 @@ const baseConfig = {
 
 module.exports = [
 	merge(baseConfig, {
-		output: {
-			path: path.resolve(process.cwd(), './lib')
-		},
-		module: {
-			rules: [
-				{
-					test: /\.(ts|js)x?$/,
-					include: process.cwd(),
-					exclude: config.jsexclude,
-					loader: 'babel-loader'
-				}
-			]
-		}
-	}),
-	merge(baseConfig, {
-		output: {
-			path: path.resolve(process.cwd(), './es')
-		},
 		module: {
 			rules: [
 				{
@@ -88,11 +75,10 @@ module.exports = [
 									useBuiltIns: 'usage',
 									corejs: 3,
 									targets: [
-										'defaults',
-										'not IE <= 11',
-										'maintained node versions'
+										'> 0.1%',
+										'last 2 versions',
+										'not IE < 11'
 									]
-									// targets: { chrome: '58', ie: '11' }
 								}
 							]
 						]

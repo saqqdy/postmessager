@@ -5,7 +5,7 @@
 	"dtsRollup": {
 		"enabled": true,
 		"untrimmedFilePath": "",
-		"publicTrimmedFilePath": "./lib/index.d.ts"
+		"publicTrimmedFilePath": "./typings/index.d.ts"
 	},
 	"apiReport": {
 		"enabled": false

@@ -9,12 +9,8 @@
  * ```
  */
 declare class PostMessager {
-    messager: {
-        [type: string]: any;
-    };
-    instance: {
-        [type: string]: any;
-    };
+    messager: Record<string, any>;
+    instance: Record<string, any>;
     type: string;
     constructor(instance?: object, type?: string);
     subscribe(actionName: string, handler: any): void;
