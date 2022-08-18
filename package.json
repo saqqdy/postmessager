@@ -61,7 +61,7 @@
 		"@eslint-sets/eslint-config-ts": "^3.0.4",
 		"@microsoft/api-extractor": "^7.18.9",
 		"@rollup/plugin-babel": "^5.2.3",
-		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-commonjs": "^22.0.2",
 		"@rollup/plugin-node-resolve": "^13.0.2",
 		"babel-loader": "^8.2.2",
 		"core-decorators": "^0.20.0",
