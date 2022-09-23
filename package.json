@@ -62,7 +62,7 @@
 		"@microsoft/api-extractor": "^7.18.9",
 		"@rollup/plugin-babel": "^5.2.3",
 		"@rollup/plugin-commonjs": "^22.0.2",
-		"@rollup/plugin-node-resolve": "^13.0.2",
+		"@rollup/plugin-node-resolve": "^14.1.0",
 		"babel-loader": "^8.2.2",
 		"core-decorators": "^0.20.0",
 		"esbuild": "^0.15.5",
