@@ -63,7 +63,7 @@
 		"@rollup/plugin-babel": "^6.0.0",
 		"@rollup/plugin-commonjs": "^23.0.0",
 		"@rollup/plugin-node-resolve": "^15.0.0",
-		"babel-loader": "^8.2.2",
+		"babel-loader": "^9.0.1",
 		"core-decorators": "^0.20.0",
 		"esbuild": "^0.15.5",
 		"eslint": "^8.21.0",
