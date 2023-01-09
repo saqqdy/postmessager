@@ -58,7 +58,7 @@
 		"@babel/plugin-transform-runtime": "^7.15.0",
 		"@babel/preset-env": "^7.15.6",
 		"@babel/preset-typescript": "^7.15.0",
-		"@eslint-sets/eslint-config-ts": "^3.0.4",
+		"@eslint-sets/eslint-config-ts": "^4.0.0",
 		"@microsoft/api-extractor": "^7.18.9",
 		"@rollup/plugin-babel": "^6.0.0",
 		"@rollup/plugin-commonjs": "^23.0.0",
