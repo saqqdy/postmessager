@@ -48,7 +48,7 @@
 	},
 	"dependencies": {
 		"core-js": "^3.18.0",
-		"js-cool": "^2.1.2"
+		"js-cool": "^4.2.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.15.7",
